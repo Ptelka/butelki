@@ -7,37 +7,22 @@ public class Clickable : MonoBehaviour
     private Collider2D collider;
     private Vector3 scale;
 
-    public void Start()
-    {
+    public void Start() {
         collider = GetComponent<Collider2D>();
         scale = transform.localScale;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-        if (Input.GetMouseButtonDown(0))
+        var contains = collider.bounds.Contains(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (Input.GetMouseButtonDown(0) && contains)
         {
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-            if (hit && hit.collider == collider)
-            {
-                Debug.Log("On click " + gameObject);
-                OnClick();
-            }
+            Debug.Log("On click " + gameObject);
+            OnClick();
         }
         
-        if (collider.bounds.Contains(mousePosition))
-        {
-            transform.localScale = scale * 1.1f;
-        }
-        else
-        {
-            transform.localScale = scale;
-        }
+        transform.localScale = contains ? scale * 1.1f : scale;
     }
 
-    public virtual void OnClick()
-    {
-    }
+    public virtual void OnClick() { }
 }

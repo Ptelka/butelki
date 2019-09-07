@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: 4fb1421909c5d624b8c48a6fef7ce8a2
+guid: a80eba4d8b2b14c47a7639a1a274ae22
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 6867123750219764492
-    second: usta_0
-  - first:
-      213: -2549546582488041348
-    second: usta_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -26,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
@@ -46,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,66 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: usta_0
-      rect:
-        serializedVersion: 2
-        x: 278
-        y: 465
-        width: 148
-        height: 108
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b14322d2fb0d5ec42b9d08f645a2bfe1
-      internalID: 6867123750219764492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: usta_1
-      rect:
-        serializedVersion: 2
-        x: 522
-        y: 496
-        width: 121
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c16584b156377a458090747139b0a1d
-      internalID: -2549546582488041348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cb12cb2706f831f488b8e3f4efdc5793
+    spriteID: a58aeb07ce4121a4d9e399b7a6589013
     internalID: 0
     vertices: []
     indices: 

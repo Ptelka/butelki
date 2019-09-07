@@ -9,32 +9,28 @@ public class RefrenController : MonoBehaviour
     public float[] times;
     private int iter;
     private float timer;
-    private bool isstopped = false;
+    private bool done = false;
     public void Stop()
     {
-        isstopped = true;
     }
 
     public void Start()
     {
-        isstopped = false;
+        if (done)
+        {
+            return;
+        }
+        foreach (var wers in refren)
+        {
+            TextOutputWindow.GetInstance().push(wers);
+        }
+
+        done = true;
     }
     
     // Update is called once per frame
     void Update()
     {
-        if (isstopped)
-        {
-            return;
-        }
-        
-        timer -= Time.deltaTime;
-        
-        if (timer <= 0)
-        {
-            var current = iter++ % refren.Length;
-            TextOutputWindow.push(refren[current]);
-            timer = times[current];
-        }
+
     }
 }

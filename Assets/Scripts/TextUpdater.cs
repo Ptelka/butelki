@@ -13,6 +13,6 @@ public class TextUpdater : Clickable
 
     public override void OnClick()
     {
-        TextOutputWindow.push(texts.Dequeue());
+        TextOutputWindow.GetInstance().push(texts.Dequeue());
     }
 }

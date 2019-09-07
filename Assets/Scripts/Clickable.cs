@@ -14,7 +14,9 @@ public class Clickable : MonoBehaviour
 
     void FixedUpdate()
     {
-        var contains = collider.bounds.Contains(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        var mpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mpos.z = transform.position.z;
+        var contains = collider.bounds.Contains(mpos);
         if (Input.GetMouseButtonDown(0) && contains)
         {
             Debug.Log("On click " + gameObject);

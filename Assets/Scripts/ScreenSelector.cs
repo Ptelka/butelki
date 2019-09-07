@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ScreenSelector : Clickable
 {
-    public GameObject current;
+    GameObject current;
     public GameObject screen;
     
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
+        current = transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -27,5 +28,7 @@ public class ScreenSelector : Clickable
         pos.y = screen.transform.position.y;
         Camera.main.transform.position = pos;
         screen.GetComponent<Screen>().OnEnter();
+        
+        Debug.Log("Setting cam pos to " + pos + " obj: " + screen);
     }
 }

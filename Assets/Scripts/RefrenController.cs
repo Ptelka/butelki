@@ -9,10 +9,25 @@ public class RefrenController : MonoBehaviour
     public float[] times;
     private int iter;
     private float timer;
+    private bool isstopped = false;
+    public void Stop()
+    {
+        isstopped = true;
+    }
+
+    public void Start()
+    {
+        isstopped = false;
+    }
     
     // Update is called once per frame
     void Update()
     {
+        if (isstopped)
+        {
+            return;
+        }
+        
         timer -= Time.deltaTime;
         
         if (timer <= 0)

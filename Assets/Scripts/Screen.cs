@@ -6,21 +6,23 @@ public class Screen : MonoBehaviour
 {
     public void OnEnter()
     {
-        var refren = GetComponent<RefrenController>();
+        gameObject.SetActive(true);
 
+        var refren = GetComponent<RefrenController>();
         if (refren)
         {
-            refren.gameObject.SetActive(true);
+            refren.Start();
         }
     }
     
     public void OnLeave()
     {
+        gameObject.SetActive(false);
+        
         var refren = GetComponent<RefrenController>();
-
         if (refren)
         {
-            refren.gameObject.SetActive(false);
+            refren.Stop();
         }
     }
     void Start()

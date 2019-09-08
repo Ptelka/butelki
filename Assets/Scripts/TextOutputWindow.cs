@@ -60,7 +60,7 @@ public class TextOutputWindow: MonoBehaviour
     public void push(Sprite sprite)
     {
         Debug.Log("push sprite");
-        Anim spriteAnim = new Anim(2.5f);
+        Anim spriteAnim = new Anim(3.5f);
         spriteAnim.sprites = new Sprite[1];
         spriteAnim.sprites[0] = sprite;
         states.Enqueue(new State(new Anim(startAnim), spriteAnim, new Anim(endAnim)));
@@ -73,6 +73,11 @@ public class TextOutputWindow: MonoBehaviour
         
         instance = this;
         image = GetComponent<Image>();
+    }
+
+    public bool IsOpened()
+    {
+        return current != null || states.Count > 0;
     }
     
     // Update is called once per frame

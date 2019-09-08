@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextUpdater : Clickable
+public class TextUpdater : MonoBehaviour
 {
-    public Queue<Sprite> texts = new Queue<Sprite>();
-    // Start is called before the first frame update
-    new void Start()
+    public Sprite[] sprites;
+    Queue<Sprite> texts = new Queue<Sprite>();
+
+    void Awake()
     {
-        base.Start();
+        foreach (var v in sprites)
+        {
+            texts.Enqueue(v);
+        }
     }
 
-    public override void OnClick()
+    public void Trigger()
     {
-        TextOutputWindow.GetInstance().push(texts.Dequeue());
+        while (texts.Count > 0)
+        {
+            TextOutputWindow.GetInstance().push(texts.Dequeue());
+        }
     }
 }

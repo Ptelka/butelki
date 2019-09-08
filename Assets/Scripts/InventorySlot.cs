@@ -11,6 +11,10 @@ public class InventorySlot : MonoBehaviour     , IPointerClickHandler
 {
     private Collectible collectible;
     private Vector3 scale;
+    public Collectible GetCollectible()
+    {
+        return collectible;
+    }
     void Start()
     {
         scale = transform.localScale;
@@ -33,17 +37,14 @@ public class InventorySlot : MonoBehaviour     , IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Click");
-        Inventory.GetInstance().Remove(collectible);
+        Inventory.GetInstance().Select(gameObject);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (collectible)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
             Debug.Log("Drag");
-            collectible.gameObject.transform.position = mousePosition;
         }
     }
 

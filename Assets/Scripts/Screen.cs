@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class Screen : MonoBehaviour
 {
+    public TextUpdater updater;
+    public Halinka halinka;
+    
     public void OnEnter()
     {
         gameObject.SetActive(true);
-
-        var refren = GetComponent<RefrenController>();
-        if (refren)
+        if (updater)
         {
-            refren.Start();
+            updater.Trigger();
+        }
+        
+        if (halinka)
+        {
+            halinka.OnScreenExit();
         }
     }
     
     public void OnLeave()
     {
         gameObject.SetActive(false);
-        
-        var refren = GetComponent<RefrenController>();
-        if (refren)
-        {
-            refren.Stop();
-        }
     }
     void Start()
     {

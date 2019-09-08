@@ -11,9 +11,11 @@ public class Inventory : MonoBehaviour
         return instance;
     }
 
+    private GameObject selected;
+    public GameObject indicator;
+
     public GameObject[] canvasInventory;
     public List<Collectible> collectibles;
-
     public void Add(Collectible collectible)
     {
         if (collectibles.Count >= canvasInventory.Length)
@@ -32,6 +34,11 @@ public class Inventory : MonoBehaviour
         if (!collectibles.Contains(collectible))
         {
             return;
+        }
+
+        if (GetSelected() == collectible)
+        {
+            selected = null;
         }
 
         for (int i = 0; i < canvasInventory.Length; i++)
@@ -57,9 +64,42 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
+    public void Select(GameObject go)
+    {
+        if (selected == go)
+        {
+            selected = null;
+        }
+        else
+        {
+            selected = go;
+        }
+    }
+
+    public Collectible GetSelected()
+    {
+        return selected ? selected.GetComponent<InventorySlot>().GetCollectible() : null;
+    }
+
+    public bool Contains(string name)
+    {
+        foreach (var v in collectibles)
+        {
+            if (v.collectibleName == name)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     void Update()
     {
-        
+        indicator.SetActive(selected != null);
+        if (selected)
+        {
+            indicator.transform.position = selected.transform.position;
+        }
     }
 }

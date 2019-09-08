@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Collectible : Clickable
 {
+    public string collectibleName;
     private bool isInInventory = false;
     private GameObject canvas;
 

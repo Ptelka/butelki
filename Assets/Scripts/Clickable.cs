@@ -14,6 +14,10 @@ public class Clickable : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (TextOutputWindow.GetInstance().IsOpened())
+        {
+            return;
+        }
         var mpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mpos.z = transform.position.z;
         var contains = collider.bounds.Contains(mpos);
